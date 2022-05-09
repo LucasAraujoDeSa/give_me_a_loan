@@ -1,4 +1,4 @@
-import {CreateLoanRequest} from "@/create_loan_request"
+import {CreateLoanRequest} from "@/domain/entities/create_loan_request"
 
 const makeSut = () => {
   const sut = new CreateLoanRequest()
