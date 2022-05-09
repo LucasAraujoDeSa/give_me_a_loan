@@ -1,0 +1,10 @@
+{
+  "name": "idontknowthename",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "LucasAraujoDeSa <andrelucassaaraujo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "git-commit-msg-linter": "^4.1.2"
+  }
+}
