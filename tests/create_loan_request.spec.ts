@@ -1,5 +1,5 @@
 import { CreateLoanRequest } from "@/domain/entities/create_loan_request"
-import { UserMock } from "./mocks/user_mock"
+import { UserMock, LoanRequestMock } from "./mocks"
 
 const makeSut = () => {
   const sut = new CreateLoanRequest()
@@ -16,17 +16,12 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = UserMock()
-    const loan = 1000.0;
-    const date = new Date(Date.now());
+    const input = LoanRequestMock(user)
 
-    const test = await sut.request({
-      user,
-      loan,
-      date,
-    });
+    const test = await sut.request(input);
 
     expect(test.user_id).toBe(user.id);
-    expect(test.loan).toBe(loan);
+    expect(test.loan).toBe(input.loan);
   });
 
   it("should throw a erro if loan is high than 1000000", async () => {
@@ -34,14 +29,12 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = UserMock()
-    const loan = 10000000;
-    const date = new Date(Date.now());
+    const input = LoanRequestMock(user)
 
     expect(
       sut.request({
-        user,
-        loan,
-        date,
+        ...input,
+        loan: 10000000
       })
     ).rejects.toBeInstanceOf(Error);
   });
@@ -51,11 +44,11 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = UserMock()
-    const loan = 10000000;
-    const date = new Date(Date.now());
+    const input = LoanRequestMock(user)
 
     expect(
       sut.request({
+        ...input,
         user: {
           ...user,
           loans:
@@ -66,8 +59,6 @@ describe("==> create loan request", () => {
             }
           ]
         },
-        loan,
-        date,
       })
     ).rejects.toBeInstanceOf(Error);
   });
