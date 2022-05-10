@@ -1,4 +1,5 @@
-import {CreateLoanRequest} from "@/domain/entities/create_loan_request"
+import { CreateLoanRequest } from "@/domain/entities/create_loan_request"
+import { UserMock } from "./mocks/user_mock"
 
 const makeSut = () => {
   const sut = new CreateLoanRequest()
@@ -14,24 +15,7 @@ describe("==> create loan request", () => {
     const { sut } = makeSut()
 
     // inputs
-    const user = {
-      id: "id",
-      user_name: "Jhon Doe",
-      loans: [
-        {
-          date: new Date(2019,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2020,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2021,1,1),
-          status: "paid",
-        }
-      ]
-    };
+    const user = UserMock()
     const loan = 1000.0;
     const date = new Date(Date.now());
 
@@ -49,24 +33,7 @@ describe("==> create loan request", () => {
     const { sut } = makeSut()
 
     // inputs
-    const user = {
-      id: "id",
-      user_name: "Jhon Doe",
-      loans: [
-        {
-          date: new Date(2019,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2020,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2021,1,1),
-          status: "paid",
-        }
-      ]
-    };
+    const user = UserMock()
     const loan = 10000000;
     const date = new Date(Date.now());
 
@@ -83,30 +50,22 @@ describe("==> create loan request", () => {
     const { sut } = makeSut()
 
     // inputs
-    const user = {
-      id: "id",
-      user_name: "Jhon Doe",
-      loans: [
-        {
-          date: new Date(2019,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2020,1,1),
-          status: "paid",
-        },
-        {
-          date: new Date(2021,1,1),
-          status: "unpaid",
-        }
-      ]
-    };
+    const user = UserMock()
     const loan = 10000000;
     const date = new Date(Date.now());
 
     expect(
       sut.request({
-        user,
+        user: {
+          ...user,
+          loans:
+          [
+            {
+              date: new Date(Date.now()),
+              status: "unpaid"
+            }
+          ]
+        },
         loan,
         date,
       })
