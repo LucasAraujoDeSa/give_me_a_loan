@@ -1,29 +1,9 @@
-interface Loan {
-  date: Date,
-  status: string
-}
-
-interface User {
-  user_name: string,
-  loans: Array<Loan>
-}
-
-interface Data {
-  user: User,
-  loan: Number,
-  date: Date
-}
-
-export namespace CreateLoanRequest {
-  export type Input = Data
-
-  export type Output = Data
-}
+import {CreateLoanRequestModel} from "../models/loan_request_model"
 
 export class CreateLoanRequest{
   public async request(
-    input: CreateLoanRequest.Input
-  ): Promise<CreateLoanRequest.Output> {
+    input: CreateLoanRequestModel.Input
+  ): Promise<CreateLoanRequestModel.Output> {
 
     if (input.loan > 1000000)
       throw new Error(
@@ -37,8 +17,11 @@ export class CreateLoanRequest{
         )
     })
 
+    const user_id = input.user.id
+
     return {
-      ...input
+      ...input,
+      user_id
     }
   }
 }

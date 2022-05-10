@@ -15,6 +15,7 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = {
+      id: "id",
       user_name: "Jhon Doe",
       loans: [
         {
@@ -40,7 +41,7 @@ describe("==> create loan request", () => {
       date,
     });
 
-    expect(test.user).toBe(user);
+    expect(test.user_id).toBe(user.id);
     expect(test.loan).toBe(loan);
   });
 
@@ -49,6 +50,7 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = {
+      id: "id",
       user_name: "Jhon Doe",
       loans: [
         {
@@ -82,6 +84,7 @@ describe("==> create loan request", () => {
 
     // inputs
     const user = {
+      id: "id",
       user_name: "Jhon Doe",
       loans: [
         {
