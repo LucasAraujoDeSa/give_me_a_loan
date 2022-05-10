@@ -1,4 +1,4 @@
-import {CreateLoanRequestModel} from "../models/loan_request_model"
+import {CreateLoanRequestModel} from "../models"
 
 export class CreateLoanRequest{
   public async request(
