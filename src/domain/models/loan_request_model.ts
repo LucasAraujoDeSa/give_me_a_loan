@@ -2,7 +2,7 @@ import { User } from "./user_model"
 
 interface Data {
   user: User,
-  loan: Number,
+  loan: number,
   date: Date
 }
 
@@ -11,7 +11,7 @@ export namespace CreateLoanRequestModel {
 
   export type Output = {
     user_id: string,
-    loan: Number,
+    loan: number,
     date: Date
   }
 }
