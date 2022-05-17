@@ -7,7 +7,8 @@ import {
 import {
   GetUserByIdDatabaseInMemory,
   SaveLoanRequestDatabaseInMemory
-} from "@/tests/database_in_memory"
+} from "@/../tests/modules/loan/database_in_memory"
+import { ErrorHandler } from "@/core/error/error_handler"
 
 
 const makeSut = () => {
