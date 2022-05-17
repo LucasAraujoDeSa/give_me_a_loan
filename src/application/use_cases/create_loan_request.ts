@@ -4,14 +4,6 @@ import {
 } from "../contracts"
 import { CreateLoanRequestEntity } from "../../domain/entities/create_loan_request_entity"
 
-export namespace CreateLoanRequest{
-  export type Input = {
-    loan: number,
-    user_id: string
-  }
-
-}
-
 export class CreateLoanRequest{
 
   private _createLoanRequestEntity = new CreateLoanRequestEntity()
@@ -41,5 +33,11 @@ export class CreateLoanRequest{
       user_id: loan_request.user_id
     })
 
+  }
+}
+export namespace CreateLoanRequest{
+  export type Input = {
+    loan: number,
+    user_id: string
   }
 }
