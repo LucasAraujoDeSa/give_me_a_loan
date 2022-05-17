@@ -1,4 +1,4 @@
-import { CreateLoanRequestEntity } from "@/domain/entities/create_loan_request_entity"
+import { CreateLoanRequestEntity } from "@/modules/loan/domain/entities/create_loan_request_entity"
 import { UserMock, LoanRequestMock } from "./mocks"
 
 const makeSut = () => {

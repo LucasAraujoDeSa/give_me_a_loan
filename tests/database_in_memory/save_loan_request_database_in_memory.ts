@@ -1,7 +1,7 @@
 import {
   SaveLoanRequestRepository,
   SaveLoanRequestRepositoryInput
-} from "@/application/contracts"
+} from "@/modules/loan/application/contracts"
 
 export class SaveLoanRequestDatabaseInMemory implements SaveLoanRequestRepository{
   public date: Date | null

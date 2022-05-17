@@ -1,4 +1,4 @@
-import { User } from "@/domain/models"
+import { User } from "@/modules/loan/domain/models"
 
 export const UserMock = (): User => {
   return {

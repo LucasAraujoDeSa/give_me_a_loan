@@ -1,7 +1,7 @@
 import {
   GetUserByIdRepository,
-} from "@/application/contracts"
-import { User } from "@/domain/models"
+} from "@/modules/loan/application/contracts"
+import { User } from "@/modules/loan/domain/models"
 
 export class GetUserByIdDatabaseInMemory implements GetUserByIdRepository{
   protected _user_id = "id"

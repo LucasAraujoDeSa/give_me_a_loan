@@ -1,4 +1,4 @@
-import { CreateLoanRequest } from "@/application/use_cases/create_loan_request"
+import { CreateLoanRequest } from "@/modules/loan/application/use_cases/create_loan_request"
 import {
   SaveLoanRequestDatabaseInMemory,
   GetUserByIdDatabaseInMemory

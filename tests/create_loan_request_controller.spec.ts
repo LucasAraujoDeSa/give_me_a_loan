@@ -1,9 +1,9 @@
 import {
   CreateLoanRequestController
-} from "@/application/controllers/create_loan_request_controller"
+} from "@/modules/loan/application/controllers/create_loan_request_controller"
 import {
   CreateLoanRequest
-} from "@/application/use_cases/create_loan_request"
+} from "@/modules/loan/application/use_cases/create_loan_request"
 import {
   GetUserByIdDatabaseInMemory,
   SaveLoanRequestDatabaseInMemory
