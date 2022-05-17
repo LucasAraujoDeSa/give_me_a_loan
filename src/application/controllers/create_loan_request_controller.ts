@@ -1,3 +1,4 @@
+import { exceptionHandler, created } from "@/core/helpers"
 import { UseCase, Controller } from "@/core/protocols"
 import { CreateLoanRequest } from "../use_cases/create_loan_request"
 
@@ -12,22 +13,9 @@ export class CreateLoanRequestController implements Controller {
     try{
       await this._createLoanRequest.execute(req)
 
-      return {
-        body: {
-          status: "created",
-          data: null
-        },
-        status_code: 201
-      }
-    }catch(error: any){
-      return {
-        body: {
-          status: "error",
-          name: error.name,
-          message: error.message,
-        },
-        status_code: error.status_code ? error.status_code : 500
-      }
+      return created()
+    }catch(error){
+      return exceptionHandler(error)
     }
   }
 }
