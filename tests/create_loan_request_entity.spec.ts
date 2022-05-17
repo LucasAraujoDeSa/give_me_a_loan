@@ -10,7 +10,7 @@ const makeSut = () => {
 }
 
 
-describe("==> create loan request", () => {
+describe("==> create loan request entity", () => {
   it("should create loan request", async () => {
     const { sut } = makeSut()
 
