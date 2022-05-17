@@ -1,10 +1,10 @@
 import { exceptionHandler, created } from "@/core/helpers"
 import { UseCase, Controller } from "@/core/protocols"
-import { CreateLoanRequest } from "../use_cases/create_loan_request"
+import { CreateLoanRequestDto } from "../dtos/create_loan_request_dto"
 
 export class CreateLoanRequestController implements Controller {
   constructor(
-    private _createLoanRequest: UseCase<CreateLoanRequest.Input, void>
+    private _createLoanRequest: UseCase<CreateLoanRequestDto, void>
   ){}
 
   public async handle(

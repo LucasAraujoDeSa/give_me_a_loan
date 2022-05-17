@@ -3,6 +3,7 @@ import {
   GetUserByIdRepository
 } from "../contracts"
 import { CreateLoanRequestEntity } from "../../domain/entities/create_loan_request_entity"
+import { CreateLoanRequestDto } from "../dtos/create_loan_request_dto"
 
 export class CreateLoanRequest{
 
@@ -16,7 +17,7 @@ export class CreateLoanRequest{
   public async execute({
     loan,
     user_id
-  }: CreateLoanRequest.Input): Promise<void> {
+  }: CreateLoanRequestDto): Promise<void> {
 
     const user = await this._getUserById.get(user_id)
 
@@ -33,11 +34,5 @@ export class CreateLoanRequest{
       user_id: loan_request.user_id
     })
 
-  }
-}
-export namespace CreateLoanRequest{
-  export type Input = {
-    loan: number,
-    user_id: string
   }
 }
