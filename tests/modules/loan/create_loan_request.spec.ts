@@ -52,4 +52,22 @@ describe('==> create loan request', () => {
       date: saveLoanRequest.date
     })
   });
+
+  it('should throw a error if user not exist or not found', async () => {
+    const { sut, getUserById } = makeSut()
+
+    // inputs
+    const input = {
+      loan: 1000,
+      user_id: "id"
+    }
+
+    jest.spyOn(getUserById, "get").mockImplementationOnce(() => (
+      new Promise(reject => null)
+    ))
+
+    expect(
+      sut.execute(input)
+    ).rejects.toBeInstanceOf(Error)
+  });
 });
