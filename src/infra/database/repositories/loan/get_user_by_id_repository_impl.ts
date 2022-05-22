@@ -5,7 +5,7 @@ export class GetUserByIdRepositoryImpl implements GetUserByIdRepository {
   private _client = prisma
 
   public async get(user_id: string): Promise<User | null> {
-    const user = this._client.users.findUnique({
+    const user = await this._client.users.findUnique({
       where: {
         id: user_id
       },

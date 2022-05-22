@@ -46,7 +46,7 @@ describe('==> create loan request', () => {
     await sut.execute(input)
 
     expect(testSpy).toHaveBeenCalledWith({
-      status: "on going",
+      status: "ONGOING",
       loan: input.loan,
       user_id: input.user_id,
       date: saveLoanRequest.date

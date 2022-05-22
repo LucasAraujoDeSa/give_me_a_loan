@@ -1,6 +1,7 @@
 import {
   SaveLoanRequestRepository,
-  GetUserByIdRepository
+  GetUserByIdRepository,
+  Status
 } from "../contracts"
 import { CreateLoanRequestEntity } from "../../domain/entities/create_loan_request_entity"
 import { CreateLoanRequestDto } from "../dtos/create_loan_request_dto"
@@ -39,7 +40,7 @@ export class CreateLoanRequest{
     await this._saveLoanRequest.save({
       date: loan_request.date,
       loan: loan_request.loan,
-      status: "on going",
+      status: Status.on_going,
       user_id: loan_request.user_id
     })
 
