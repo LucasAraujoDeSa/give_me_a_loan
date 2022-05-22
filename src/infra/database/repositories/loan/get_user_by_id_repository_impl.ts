@@ -1,11 +1,11 @@
 import { GetUserByIdRepository } from "@/modules/loan/application/contracts"
 import { User } from "@/modules/loan/domain/models"
-import { BaseRepository } from "../base_repository"
-
-export class GetUserByIdRepositoryImpl extends BaseRepository implements GetUserByIdRepository {
+import prisma from "../../client"
+export class GetUserByIdRepositoryImpl implements GetUserByIdRepository {
+  private _client = prisma
 
   public async get(user_id: string): Promise<User | null> {
-    const user = this._client_context.users.findUnique({
+    const user = this._client.users.findUnique({
       where: {
         id: user_id
       },
