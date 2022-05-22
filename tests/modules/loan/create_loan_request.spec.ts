@@ -46,10 +46,28 @@ describe('==> create loan request', () => {
     await sut.execute(input)
 
     expect(testSpy).toHaveBeenCalledWith({
-      status: "on going",
+      status: "ONGOING",
       loan: input.loan,
       user_id: input.user_id,
       date: saveLoanRequest.date
     })
+  });
+
+  it('should throw a error if user not exist or not found', async () => {
+    const { sut, getUserById } = makeSut()
+
+    // inputs
+    const input = {
+      loan: 1000,
+      user_id: "id"
+    }
+
+    jest.spyOn(getUserById, "get").mockImplementationOnce(() => (
+      new Promise(reject => null)
+    ))
+
+    expect(
+      sut.execute(input)
+    ).rejects.toBeInstanceOf(Error)
   });
 });

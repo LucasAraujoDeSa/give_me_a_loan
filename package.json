@@ -1,11 +1,13 @@
 {
-  "name": "idontknowthename",
+  "name": "give_me_a_loan",
   "version": "1.0.0",
   "main": "index.js",
   "author": "LucasAraujoDeSa <andrelucassaaraujo@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "git-commit-msg-linter": "^4.1.2"
+    "@prisma/client": "^3.14.0",
+    "git-commit-msg-linter": "^4.1.2",
+    "prisma": "^3.14.0"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
