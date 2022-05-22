@@ -1,5 +1,6 @@
 import { GetUserByIdRepositoryImpl } from "@/infra/database/repositories/loan/get_user_by_id_repository_impl"
 import prisma from "@/infra/database/client"
+import { UserMock } from "./mocks/user_mock"
 
 const makeSut = () => {
   const sut = new GetUserByIdRepositoryImpl()
@@ -8,6 +9,8 @@ const makeSut = () => {
     sut
   }
 }
+
+const data = UserMock()
 
 describe('==> get user by id repository', () => {
   afterAll( async () => {
@@ -24,12 +27,7 @@ describe('==> get user by id repository', () => {
     const { sut } = makeSut()
 
     const user = await prisma.users.create({
-      data:{
-        user_name: "jhon Doe",
-        email: "email@email.com",
-        password: "123456",
-        date: new Date()
-      }
+      data:data
     })
 
     const test = await sut.get(user.id)
